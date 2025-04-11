@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 79 70 229;
+    --color-primary-light: 99 102 241;
+    --color-primary-dark: 67 56 202;
+    
+    --color-secondary: 16 185 129;
+    --color-secondary-light: 52 211 153;
+    --color-secondary-dark: 5 150 105;
+    
+    --color-background: 255 255 255;
+    --color-surface: 250 250 250;
+    --color-surface-variant: 241 245 249;
+    
+    --color-text-primary: 15 23 42;
+    --color-text-secondary: 71 85 105;
+    --color-text-tertiary: 148 163 184;
+    
+    --color-error: 220 38 38;
+    --color-warning: 234 179 8;
+    --color-success: 22 163 74;
+    --color-info: 37 99 235;
+    
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    
+    --space-unit: 0.25rem;
+  }
+  
+  .dark {
+    --color-primary: 129 140 248;
+    --color-primary-light: 165 180 252;
+    --color-primary-dark: 99 102 241;
+    
+    --color-secondary: 52 211 153;
+    --color-secondary-light: 110 231 183;
+    --color-secondary-dark: 16 185 129;
+    
+    --color-background: 15 23 42;
+    --color-surface: 30 41 59;
+    --color-surface-variant: 51 65 85;
+    
+    --color-text-primary: 248 250 252;
+    --color-text-secondary: 226 232 240;
+    --color-text-tertiary: 148 163 184;
+    
+    --color-error: 248 113 113;
+    --color-warning: 250 204 21;
+    --color-success: 74 222 128;
+    --color-info: 96 165 250;
+  }
+  
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-text-primary antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, .h1 {
+    @apply text-4xl font-bold tracking-tight md:text-5xl;
+    line-height: 1.1;
+  }
+  
+  h2, .h2 {
+    @apply text-3xl font-bold tracking-tight md:text-4xl;
+    line-height: 1.2;
+  }
+  
+  h3, .h3 {
+    @apply text-2xl font-bold tracking-tight md:text-3xl;
+    line-height: 1.3;
+  }
+  
+  h4, .h4 {
+    @apply text-xl font-semibold tracking-tight md:text-2xl;
+    line-height: 1.4;
+  }
+  
+  p, .body-lg {
+    @apply text-base leading-relaxed;
+  }
+  
+  .body-md {
+    @apply text-sm leading-relaxed;
+  }
+  
+  .body-sm {
+    @apply text-xs leading-relaxed;
+  }
+  
+  *:focus-visible {
+    @apply outline-none ring-1 ring-text-tertiary/30 ring-offset-1 ring-offset-background;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark;
+  }
+  
+  .btn-outline {
+    @apply border border-input bg-background hover:bg-surface hover:text-text-primary;
+  }
+  
+  .btn-ghost {
+    @apply hover:bg-surface-variant hover:text-text-primary;
+  }
+  
+  .btn-icon {
+    @apply h-10 w-10 p-0 rounded-full flex items-center justify-center;
+  }
+  
+  .input {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-text-tertiary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .card {
+    @apply rounded-lg border border-border bg-surface shadow-sm;
+  }
+  
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6;
+  }
+  
+  .card-content {
+    @apply p-6 pt-0;
+  }
+  
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
+  }
+  
+  .message {
+    @apply mb-4 max-w-[85%] transition-all duration-300 ease-in-out;
+  }
+  
+  .message-user {
+    @apply ml-auto;
+  }
+  
+  .message-assistant {
+    @apply mr-auto;
+  }
+  
+  .message-content {
+    @apply overflow-hidden transition-all duration-300 ease-in-out;
+  }
+  
+  .message-bubble {
+    @apply rounded-2xl p-4 shadow-sm;
+  }
+  
+  .message-user .message-bubble {
+    @apply bg-primary text-white rounded-tr-none;
+  }
+  
+  .message-assistant .message-bubble {
+    @apply bg-surface-variant text-text-primary rounded-tl-none;
+  }
+  
+  .message-error .message-bubble {
+    @apply bg-red-50 text-error border border-error/20 dark:bg-red-950 dark:border-error/30;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-pulse-subtle {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    animation-delay: calc(var(--delay, 0) * 200ms);
+    opacity: 0.85;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.85;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .bg-input-gradient {
+    background: linear-gradient(to right, rgb(var(--color-background)), rgb(var(--color-surface-variant) / 0.3), rgb(var(--color-background)));
+  }
+  
+  .hover-scale {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .focus-subtle {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .focus-subtle:focus-within {
+    border-color: rgb(var(--color-text-tertiary) / 0.5);
+    box-shadow: 0 0 0 1px rgb(var(--color-text-tertiary) / 0.1);
+  }
+  
+  .resize-handle {
+    position: relative;
+  }
+  
+  .resize-handle:hover::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 2rem;
+    background-color: rgb(var(--color-text-tertiary) / 0.5);
+    border-radius: 9999px;
+    box-shadow: -2px 0 0 rgb(var(--color-text-tertiary) / 0.2), 
+                2px 0 0 rgb(var(--color-text-tertiary) / 0.2);
+  }
+  
+  @keyframes pulse-width {
+    0%, 100% { width: 1px; }
+    50% { width: 3px; }
+  }
+  
+  .drag-handle-line {
+    animation: pulse-width 2s ease-in-out infinite;
+  }
+}
+
+html,
+body {
+  @apply bg-white dark:bg-gray-950;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
+
+body.resize-cursor {
+  cursor: col-resize !important;
+}
+  

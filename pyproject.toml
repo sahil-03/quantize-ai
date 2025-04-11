@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "win25-team21"
+version = "0.1.0"
+description = ""
+authors = ["Sahil Adhawade <sahil.adhawade@gmail.com>"]
+readme = "README.md"
+packages = [{include = "core"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+paramiko = "^3.5.1"
+docker = "^7.1.0"
+transformers = "^4.48.2"
+torch = "^2.6.0"
+torchvision = "^0.21.0"
+fastapi = "^0.115.8"
+uvicorn = "^0.34.0"
+requests = "^2.32.3"
+sentencepiece = "^0.2.0"
+tiktoken = "^0.8.0"
+blobfile = "^3.0.0"
+accelerate = ">=0.26.0"
+streamlit = "^1.42.2"
+numpy = "1.23"
+
+
+[tool.poetry.group.dev.dependencies]
+cython = "^3.0.12"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

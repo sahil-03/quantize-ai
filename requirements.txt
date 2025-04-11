@@ -1,0 +1,36 @@
+# Core dependencies
+torch>=2.6.0
+transformers>=4.48.2
+fastapi>=0.115.8
+uvicorn>=0.34.0
+pydantic>=2.0.0
+paramiko>=3.5.1
+docker>=7.1.0
+torchvision>=0.21.0
+sentencepiece>=0.2.0
+tiktoken>=0.8.0
+blobfile>=3.0.0
+accelerate>=0.26.0
+streamlit>=1.42.2
+numpy>=1.23.5  # Required by scipy and ml-dtypes
+
+# Additional dependencies that might be needed
+# Often needed for LLM tokenizers
+# Required for device_map="auto"
+
+# Additional requirements from convert_llama.py
+tokenizers>=0.13.0     # For tokenizer conversion
+protobuf>=3.20.0      # Required for sentencepiece
+safetensors>=0.3.1    # For safe serialization
+huggingface-hub>=0.16.0  # For model pushing/pulling
+
+# Additional requirements from test_llama_inference.py
+requests>=2.31.0       # For making HTTP requests
+
+# Development dependencies
+cython>=3.0.12
+
+# Note: TVM requires numpy <= 1.23.0 which conflicts with other dependencies.
+# TVM should be installed in a separate virtual environment using:
+#   make tvm-env
+# See the Makefile for details on how to use the TVM environment.

@@ -1,0 +1,12 @@
+# misc
+**/__pycache__/
+**/node_modules/
+node_modules
+
+# venv
+**/venv/
+/vllm/
+
+# docker builds
+**.tar
+

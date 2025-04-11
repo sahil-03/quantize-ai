@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@mui/icons-material": "^6.4.3",
+    "@remix-run/node": "^2.15.3",
+    "@tailwindcss/vite": "^4.0.8",
+    "classnames": "^2.5.1",
+    "openai": "^4.85.4",
+    "react-markdown": "^10.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.8"
+  }
+}
