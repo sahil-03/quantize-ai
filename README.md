@@ -1,3 +1,5 @@
+Video demo: https://youtu.be/QjQtyE1QsWc
+
 # Quick Setup Guide
 
 **Hey there, new Quantize.ai Dev :smile:. Welcome to the team! We're thrilled to have you onboard. Here are some instructions to set up your environment!**
